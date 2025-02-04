@@ -17,3 +17,14 @@
       state: latest
     when: ansible_distribution == "ubuntu"
 
+
+- hosts: db_servers
+  become: true
+  tasks:
+
+  - name: install mariadb package (Ubuntu)
+    apt: 
+      name: mariadb-server
+      state: present
+    when: ansible_distribution == "Ubuntu"
+
